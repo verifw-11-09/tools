@@ -90,12 +90,7 @@ COMSPEED?=	115200
 UEFI?=		arm dvd serial vga vm
 ZFS?=		# empty
 GITBASE?=	https://github.com/verifw
-MIRRORS?=	# https://opnsense.c0urier.net \
-		# https://mirrors.nycbug.org/pub/opnsense \
-		# https://mirror.wdc1.us.leaseweb.net/opnsense \
-		# https://mirror.sfo12.us.leaseweb.net/opnsense \
-		# https://mirror.fra10.de.leaseweb.net/opnsense \
-		# https://mirror.ams1.nl.leaseweb.net/opnsense
+MIRRORS?=	no
 SERVER?=	user@does.not.exist
 UPLOADDIR?=	.
 _VERSION!=	date '+%Y%m%d%H%M'
@@ -104,12 +99,12 @@ STAGEDIRPREFIX?=/usr/obj
 
 EXTRABRANCH?=	# empty
 
-COREBRANCH?=	master
+COREBRANCH?=	stable/${ABI}
 COREVERSION?=	# empty
 COREDIR?=	${ROOTDIR}/core
 COREENV?=	CORE_PHP=${PHP} CORE_ABI=${ABI} CORE_PYTHON=${PYTHON}
 
-PLUGINSBRANCH?=	master
+PLUGINSBRANCH?=	stable/${ABI}
 PLUGINSDIR?=	${ROOTDIR}/plugins
 PLUGINSENV?=	PLUGIN_PHP=${PHP} PLUGIN_ABI=${ABI} PLUGIN_PYTHON=${PYTHON}
 
@@ -121,7 +116,7 @@ PORTSREFURL?=	https://git.FreeBSD.org/ports.git
 PORTSREFDIR?=	${ROOTDIR}/freebsd-ports
 PORTSREFBRANCH?=main
 
-SRCBRANCH?=	master
+SRCBRANCH?=	stable/${ABI}
 SRCDIR?=	${ROOTDIR}/src
 
 # A couple of meta-targets for easy use and ordering:
